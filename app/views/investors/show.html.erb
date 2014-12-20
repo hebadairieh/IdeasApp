@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User name:</strong>
+  <%= @investor.user_name %>
+</p>
+
+<p>
+  <strong>Idea:</strong>
+  <%= @investor.idea_id %>
+</p>
+
+<p>
+  <strong>Info:</strong>
+  <%= @investor.info %>
+</p>
+
+<%= link_to 'Edit', edit_investor_path(@investor) %> |
+<%= link_to 'Back', investors_path %>

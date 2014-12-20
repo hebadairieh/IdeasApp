@@ -1,0 +1,34 @@
+
+<div class="row">
+  <div class="col-md-6">
+    <%= image_tag(@idea.picture_url, width: '100%') if @idea.picture.present? %>
+  </div>
+  <div class="col-md-6">
+    <p><b>Idea Name:</b><%= @idea.name %></p>
+    <p><b>Description: </b><%= @idea.description %></p>
+    <p><b>By </b><%= @idea.owner %></p>
+    <p>Created at: <%=@idea.created_at %></p>
+
+    <p>
+      <%= link_to 'Edit', edit_idea_path(@idea) %> |
+      <%= link_to 'Destroy', @idea, data: { confirm: 'Are you sure?' }, method: :delete %> |
+      <%= link_to 'Back', ideas_path %>
+    </p>
+  </div>
+
+</div>
+<h3>User's comments on this idea!</h3>
+<% @comments.each do |comment| %>
+  <div>
+    <strong><%= comment.user_name %></strong>
+    <br />
+    <p><%= comment.body %></p>
+    <p><%= link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+  </div>
+<% end %>
+<h3>Add you comments!</h3>
+<div class="well">
+<%= render 'comments/form' %>
+</div>
+
+</div>
